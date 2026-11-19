@@ -1,80 +1,112 @@
 # Python Business Automation Toolkit
 
-> Practical Python utilities for cleaning business data, automating repetitive workflows, and producing consistent reports.
+> Clean, inspect, and export business CSV data through a repeatable Python workflow.
 
-**Status:** Planning / initial documentation  
+**Status:** MVP implemented; deployment and runtime verification pending  
 **Primary language:** Python 3  
-**Live demo:** Not deployed yet  
-**Deployment target:** Render web service (planned)
+**Framework:** Streamlit  
+**Live demo:** Pending deployment  
+**Deployment target:** Render
 
 ## Overview
 
-Small teams often spend time repeating spreadsheet cleanup, file handling, validation, and reporting tasks. This project is intended to turn those workflows into reusable, testable tools.
+Small teams often spend time cleaning spreadsheets, correcting inconsistent column names, removing duplicate records, and preparing data-quality summaries. This project provides a simple, repeatable workflow for those tasks.
 
-This repository is a portfolio project intended to demonstrate practical, maintainable software built around a recognizable business use case. The capabilities below describe the planned scope; they should not be interpreted as already implemented.
+Upload a CSV, choose the transformations, review the cleaned data and quality metrics, then download the processed dataset and a separate quality report.
 
-## Intended users
+## Features
 
-Operations teams, small businesses, analysts, and freelancers who need reliable administrative and data-processing automation.
-
-## Planned capabilities
-
-- CSV and Excel import, validation, and cleanup
-- Reusable data transformation utilities
-- Automated summary and report generation
-- Configurable batch-processing workflows
-- A lightweight web demonstration of selected tools
+- Upload CSV files through a browser interface.
+- Normalize column names into consistent snake_case labels.
+- Trim leading and trailing whitespace in text fields.
+- Remove completely empty rows.
+- Remove duplicate records.
+- Review original and processed data previews.
+- Inspect per-column missing-value and uniqueness metrics.
+- Download the cleaned dataset and quality report as CSV files.
+- Reuse the cleaning logic as an importable Python module.
 
 ## Technology
 
-Python 3, pandas, openpyxl, pytest, and a lightweight web layer selected during implementation.
+- Python 3
+- Streamlit
+- pandas
+- pytest
 
-The implementation will favor a small, understandable dependency set and documented setup steps. Final versions and infrastructure choices will be recorded as they are selected.
-
-## Planned project structure
+## Project structure
 
 ```text
 py-business-automation/
-├── src/ — reusable automation modules
-├── app/ — demonstration interface
-├── tests/ — automated tests
-├── examples/ — safe synthetic input files
-├── docs/ — usage and design notes
+├── app.py
+├── automation.py
+├── requirements.txt
+├── render.yaml
+├── sample-data/
+│   └── customers.csv
+├── tests/
+│   └── test_automation.py
+├── .gitignore
 ├── README.md
 ├── ROADMAP.md
 └── CHANGELOG.md
 ```
 
-The exact structure may evolve as implementation begins.
+## Run locally
 
-## Getting started
+Python 3.10 or newer is recommended.
 
-The application is not implemented yet, so installation and run instructions will be added with the first working milestone. No commands are provided here that would imply functionality exists before it does.
+```bash
+python -m venv .venv
+```
 
-## Demo and deployment
+Activate the environment:
 
-The public demonstration is planned for **Render web service (planned)**. The live URL will be added here after deployment and verification.
+```bash
+# macOS / Linux
+source .venv/bin/activate
 
-## Quality approach
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
+```
 
-- Automated tests for core business logic.
-- Synthetic examples instead of private or customer data.
-- Clear validation and error handling.
-- Reproducible setup and deployment instructions.
-- Documentation kept aligned with the actual code.
+Install dependencies and launch the app:
 
-## Roadmap
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-See [ROADMAP.md](ROADMAP.md) for planned milestones.
+Run the automated tests:
 
-## Changelog
+```bash
+pytest -q
+```
 
-See [CHANGELOG.md](CHANGELOG.md) for project history.
+## Try the sample data
 
-## Portfolio outcomes
+Use the **Load sample dataset** option in the app, or upload [sample-data/customers.csv](sample-data/customers.csv). The included records are synthetic and contain no real customer information.
 
-Demonstrates Python scripting, data wrangling, file processing, validation, testing, and practical automation.
+## Data handling and privacy
 
-## Project status
+The demo processes uploaded data in the active application session and does not intentionally persist uploaded files. Do not upload confidential, sensitive, or personally identifiable customer information. Public demo hosting is not a substitute for a private, compliance-reviewed data-processing environment.
 
-This repository currently establishes the project definition and documentation baseline. Features, screenshots, test results, and deployment links will be added only after they exist and have been verified.
+## Deployment
+
+A Render configuration is included in `render.yaml`. Deployment is not yet confirmed. The live URL will be published here only after the service has successfully deployed and the application has been checked.
+
+## Roadmap and release history
+
+- [Roadmap](ROADMAP.md)
+- [Changelog](CHANGELOG.md)
+
+## Portfolio capabilities demonstrated
+
+Python scripting, pandas data processing, reusable function design, CSV workflows, data-quality reporting, Streamlit application development, and automated testing.
+
+## Current limitations
+
+- CSV input only; Excel support is planned.
+- No persistent storage or user accounts.
+- No background processing for very large files.
+- Data-quality checks are descriptive and do not infer business-specific correctness.
+- Deployment and automated test execution still need verification.
