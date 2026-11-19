@@ -25,10 +25,11 @@ This roadmap tracks planned work. A task is complete only when implemented and v
 
 ## Phase 3 — Public demonstration
 
-- [x] Add initial Render deployment configuration.
-- [ ] Deploy the application to Render.
-- [ ] Verify upload, cleaning, previews, and downloads on the live service.
-- [ ] Add the verified public URL to the README.
+- [x] Add Render deployment configuration.
+- [x] Deploy the application to Render Free.
+- [x] Confirm successful build, deployment, and Streamlit server startup from Render logs.
+- [x] Publish the live URL in the README.
+- [ ] Verify upload, cleaning, previews, and downloads through the live browser workflow.
 - [ ] Add screenshots and a short usage walkthrough.
 
 ## Phase 4 — Quality and expansion
