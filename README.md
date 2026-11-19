@@ -2,11 +2,11 @@
 
 > Clean, inspect, and export business CSV data through a repeatable Python workflow.
 
-**Status:** MVP implemented; deployment and runtime verification pending  
+**Status:** MVP deployed; functional acceptance checks pending  
 **Primary language:** Python 3  
 **Framework:** Streamlit  
-**Live demo:** Pending deployment  
-**Deployment target:** Render
+**Live demo:** https://python-business-automation.onrender.com  
+**Deployment:** Render (Free plan)
 
 ## Overview
 
@@ -25,6 +25,7 @@ Upload a CSV, choose the transformations, review the cleaned data and quality me
 - Inspect per-column missing-value and uniqueness metrics.
 - Download the cleaned dataset and quality report as CSV files.
 - Reuse the cleaning logic as an importable Python module.
+- Load a synthetic customer dataset for demonstrations.
 
 ## Technology
 
@@ -32,6 +33,8 @@ Upload a CSV, choose the transformations, review the cleaned data and quality me
 - Streamlit
 - pandas
 - pytest
+- GitHub Actions
+- Render
 
 ## Project structure
 
@@ -45,11 +48,21 @@ py-business-automation/
 │   └── customers.csv
 ├── tests/
 │   └── test_automation.py
+├── .github/workflows/
+│   └── tests.yml
 ├── .gitignore
 ├── README.md
 ├── ROADMAP.md
 └── CHANGELOG.md
 ```
+
+## Live demo
+
+**[Launch Python Business Automation](https://python-business-automation.onrender.com)**
+
+The service is deployed on Render's Free plan. Free services may spin down after inactivity, so the first request after a quiet period can take longer while the service wakes up.
+
+Use the built-in sample dataset or upload a non-sensitive CSV file to explore the workflow. The live service has been confirmed running by Render; end-to-end browser acceptance checks remain pending.
 
 ## Run locally
 
@@ -90,10 +103,6 @@ Use the **Load sample dataset** option in the app, or upload [sample-data/custom
 
 The demo processes uploaded data in the active application session and does not intentionally persist uploaded files. Do not upload confidential, sensitive, or personally identifiable customer information. Public demo hosting is not a substitute for a private, compliance-reviewed data-processing environment.
 
-## Deployment
-
-A Render configuration is included in `render.yaml`. Deployment is not yet confirmed. The live URL will be published here only after the service has successfully deployed and the application has been checked.
-
 ## Roadmap and release history
 
 - [Roadmap](ROADMAP.md)
@@ -101,7 +110,7 @@ A Render configuration is included in `render.yaml`. Deployment is not yet confi
 
 ## Portfolio capabilities demonstrated
 
-Python scripting, pandas data processing, reusable function design, CSV workflows, data-quality reporting, Streamlit application development, and automated testing.
+Python scripting, pandas data processing, reusable function design, CSV workflows, data-quality reporting, Streamlit application development, deployment configuration, and automated testing.
 
 ## Current limitations
 
@@ -109,4 +118,4 @@ Python scripting, pandas data processing, reusable function design, CSV workflow
 - No persistent storage or user accounts.
 - No background processing for very large files.
 - Data-quality checks are descriptive and do not infer business-specific correctness.
-- Deployment and automated test execution still need verification.
+- Automated test execution and end-to-end live workflow acceptance are still pending.
