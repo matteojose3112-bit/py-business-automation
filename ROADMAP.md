@@ -1,35 +1,49 @@
 # Roadmap
 
-This roadmap describes intended work. Items are not considered complete until implemented, tested, and documented.
+This roadmap tracks planned work. A task is complete only when implemented and verified.
 
 ## Phase 1 — Working foundation
-- [ ] Establish the project structure and supported runtime.
-- [ ] Implement the smallest useful end-to-end workflow: Create a tested CSV-cleaning workflow with sample input/output, validation rules, and a repeatable report.
-- [ ] Add representative synthetic sample data where applicable.
-- [ ] Add automated tests for core behavior.
-- [ ] Document local setup and known limitations.
+
+- [x] Establish the Python project structure and dependencies.
+- [x] Implement reusable CSV cleaning functions.
+- [x] Add configurable header normalization and whitespace trimming.
+- [x] Add empty-row and duplicate-row removal.
+- [x] Add per-column data-quality reporting.
+- [x] Add a Streamlit interface with previews and CSV exports.
+- [x] Add synthetic sample data.
+- [x] Add an initial automated test suite.
+- [ ] Execute the test suite and resolve any failures.
+- [ ] Verify local setup from a clean environment.
 
 ## Phase 2 — Core capabilities
-- [ ] Add Excel support, batch processing, and configurable transformations.
-- [ ] Add input validation and predictable error handling.
-- [ ] Expand test coverage for normal and edge cases.
-- [ ] Document the architecture and key design decisions.
+
+- [ ] Add Excel import and export support.
+- [ ] Add configurable column mapping and data validation rules.
+- [ ] Add batch processing for multiple files.
+- [ ] Add downloadable processing summaries and error logs.
+- [ ] Expand tests for malformed files, unusual encodings, and edge cases.
 
 ## Phase 3 — Public demonstration
-- [ ] Add the demonstration interface, deployment configuration, and operational documentation.
-- [ ] Add screenshots or a short demonstration walkthrough.
-- [ ] Verify the deployed experience from a clean browser/session.
-- [ ] Link the live demo and deployment status from the README.
+
+- [x] Add initial Render deployment configuration.
+- [ ] Deploy the application to Render.
+- [ ] Verify upload, cleaning, previews, and downloads on the live service.
+- [ ] Add the verified public URL to the README.
+- [ ] Add screenshots and a short usage walkthrough.
 
 ## Phase 4 — Quality and expansion
-- [ ] Improve error handling, test coverage, security, and usability based on feedback.
-- [ ] Review accessibility, security, performance, and maintainability.
-- [ ] Update documentation to match the actual implementation.
-- [ ] Tag a first stable release when the project meets its acceptance criteria.
+
+- [ ] Add file-size and row-count safeguards.
+- [ ] Improve accessibility and responsive behavior.
+- [ ] Add structured application logging and clearer user-facing errors.
+- [ ] Review security and privacy considerations for public use.
+- [ ] Tag a first stable release after acceptance checks pass.
 
 ## Definition of done
-- A new user can understand the project and reproduce its core workflow.
-- Core functionality is covered by automated tests.
-- No credentials, private customer data, or real personal information are committed.
-- The README accurately describes implemented features and deployment status.
-- Known limitations are stated clearly.
+
+- A new user can run the project using documented instructions.
+- Core transformations are covered by passing automated tests.
+- Sample data is synthetic and reproducible.
+- The deployed application is accessible and its core workflow has been verified.
+- No credentials or private customer data are committed.
+- Documentation accurately reflects the implemented features and known limitations.
