@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented here.
 
-## [Unreleased]
+## [0.1.0] — 2026-11-19
 
 ### Added
 - Streamlit interface for uploading and previewing CSV files.
@@ -13,12 +13,18 @@ All notable changes to this project are documented here.
 - CSV downloads for cleaned data and the quality report.
 - Synthetic customer dataset for demonstration.
 - Initial pytest coverage for transformations and reporting.
-- Render service configuration.
+- GitHub Actions workflow to run pytest on pushes and pull requests.
+- Render service configuration and public Free-plan deployment.
 
 ### Changed
-- README now documents the implemented MVP, local setup, privacy notes, and current limitations.
-- Roadmap updated to distinguish implemented work from pending verification and deployment.
+- README now links to the live application and documents local setup, privacy notes, and known limitations.
+- Roadmap updated to record successful deployment and retain outstanding verification tasks.
 
-### Pending verification
-- Automated tests have been added but have not yet been executed in a verified environment.
-- Render deployment and public URL have not yet been confirmed.
+### Deployment
+- Live application: https://python-business-automation.onrender.com
+- Render confirmed the build and deployment succeeded.
+- Application logs confirm Streamlit started and the service was marked live.
+
+### Verification still pending
+- Automated test suite execution has not yet been confirmed.
+- End-to-end browser checks of sample loading, cleaning, previews, and downloads remain pending.
