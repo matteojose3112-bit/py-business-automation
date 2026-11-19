@@ -1,21 +1,24 @@
 # Changelog
 
-All notable changes to this project will be documented here.
-
-This project follows a lightweight Keep a Changelog-style format. Until a first release is published, work is tracked under **Unreleased**.
+All notable changes to this project are documented here.
 
 ## [Unreleased]
 
 ### Added
-- Initial project scope and intended audience documented.
-- Initial README, roadmap, and changelog created.
-- Planned first milestone: Create a tested CSV-cleaning workflow with sample input/output, validation rules, and a repeatable report.
+- Streamlit interface for uploading and previewing CSV files.
+- Reusable CSV cleaning pipeline in `automation.py`.
+- Optional whitespace trimming and snake_case header normalization.
+- Optional removal of completely empty rows and duplicate records.
+- Per-column data-quality report with missing and unique-value metrics.
+- CSV downloads for cleaned data and the quality report.
+- Synthetic customer dataset for demonstration.
+- Initial pytest coverage for transformations and reporting.
+- Render service configuration.
 
-### Planned
-- Implement the core python business automation toolkit workflow.
-- Add automated tests and reproducible sample data where applicable.
-- Publish and verify the public demonstration.
+### Changed
+- README now documents the implemented MVP, local setup, privacy notes, and current limitations.
+- Roadmap updated to distinguish implemented work from pending verification and deployment.
 
-### Notes
-- No application functionality is claimed as complete by this documentation-only baseline.
-- Release dates and version numbers will be added when actual releases are created.
+### Pending verification
+- Automated tests have been added but have not yet been executed in a verified environment.
+- Render deployment and public URL have not yet been confirmed.
