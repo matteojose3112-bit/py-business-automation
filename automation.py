@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from typing import Any
 
 import pandas as pd
@@ -57,16 +57,14 @@ def clean_dataframe(
 
     removed_empty = 0
     if remove_empty_rows:
-        before = len(result)
-        result = result.dropna(how="all")
-        # Treat whitespace-only cells as empty after trimming.
-        object_columns = result.select_dtypes(include=["object", "string"]).columns
-        if len(object_columns):
-            blank_mask = result[object_columns].apply(
-                lambda col: col.map(lambda value: isinstance(value, str) and value == "")
+        empty_mask = result.apply(
+            lambda column: column.map(
+                lambda value: pd.isna(value)
+                or (isinstance(value, str) and value.strip() == "")
             )
-            result = result.loc[~blank_mask.all(axis=1)] if len(object_columns) == len(result.columns) else result
-        removed_empty = original_rows - len(result)
+        ).all(axis=1)
+        removed_empty = int(empty_mask.sum())
+        result = result.loc[~empty_mask]
 
     removed_duplicates = 0
     if remove_duplicates:
